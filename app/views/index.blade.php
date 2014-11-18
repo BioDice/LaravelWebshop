@@ -3,10 +3,8 @@
 <head>
 <title>Electronix Store</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-
-{{ HTML::style('css/style.css'); }}
-{{ HTML::script('js/boxOver.js'); }}
-
+{{ HTML::style("css/style.css") }}
+{{ HTML::script("js/boxOver.js") }}
 </head>
 <body>
 <div id="main_container">
@@ -14,7 +12,7 @@
     <div class="top_search">
       <div class="search_text"><a href="#">Advanced Search</a></div>
       <input type="text" class="search_input" name="search" />
-      <input type="image" src="../../../../../USBWebserver%20v8.6%20-%20kopie/root/Webshop/app/images/search.gif" class="search_bt"/>
+      {{ HTML::image('images/search.gif', 'search', array('class' => 'search_bt')) }}
     </div>
     <div class="languages">
       <div class="lang_text">Languages:</div>
