@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', 'HomeController@Home');
+Route::get('about', 'HomeController@About');
+Route::get('menu', 'HomeController@GetMenu');
