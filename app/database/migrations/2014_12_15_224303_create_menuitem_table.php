@@ -20,6 +20,7 @@ class CreateMenuItemTable extends Migration {
             $table->string('class');
 			$table->timestamps();
 		});
+
 	}
 
 	/**

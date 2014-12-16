@@ -19,9 +19,11 @@
               <div class="lang_text">Languages:</div>
               <a href="#" class="lang">
                    {{ HTML::image('images/en.gif', 'english', array()) }}
-                   {{ HTML::image('images/de.gif', 'German', array()) }}
               </a>
-              <a href="#" class="lang"><img src="../../../../../../USBWebserver%20v8.6%20-%20kopie/root/Webshop/app/images/de.gif" alt="" border="0" /></a> </div>
+              <a href="#" class="lang">
+                  {{ HTML::image('images/de.gif', 'German', array()) }}
+              </a>
+         </div>
     </div>
     <div id="main_content">
          <div id="menu_tab">
