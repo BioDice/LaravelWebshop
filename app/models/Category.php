@@ -10,4 +10,9 @@ class Category extends Eloquent {
     {
         return $this->belongsToMany('Product');
     }
+
+    public function parent()
+    {
+        return $this->belongsTo('parent');
+    }
 }
