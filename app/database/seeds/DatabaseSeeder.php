@@ -6,43 +6,8 @@ class DatabaseSeeder extends Seeder {
 
 	public function run()
 	{
-		$this->call('MenuItemTableSeeder');
+		$this->call('MenuItemsTableSeeder');
 
-		$this->command->info('menu_item table seeded!');
+		$this->command->info('menu_items table seeded!');
 	}
-}
-
-class MenuItemTableSeeder extends Seeder {
-
-	public function run()
-	{
-		$now = date('Y-m-d H:i:s');
-
-		DB::table('menu_items')->delete();
-
-		MenuItem::create(array(
-			'name' => 'Home',
-			'url' => 'home',
-			'class' => 'nav1',
-			'created_at' => $now,
-			'updated_at' => $now
-		));
-
-		MenuItem::create(array(
-			'name' => 'Sign up',
-			'url' => 'register',
-			'class' => 'nav4',
-			'created_at' => $now,
-			'updated_at' => $now
-		));
-
-		MenuItem::create(array(
-			'name' => 'About us',
-			'url' => 'about',
-			'class' => 'nav6',
-			'created_at' => $now,
-			'updated_at' => $now
-		));
-	}
-
 }

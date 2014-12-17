@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@Home');
 Route::get('about', 'HomeController@About');
 Route::get('menu', 'HomeController@GetMenu');
+Route::get('login', 'AccountController:Login');
+Route::get('register', 'AccountController:Register');

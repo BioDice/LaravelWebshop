@@ -18,7 +18,7 @@ namespace Symfony\Component\HttpFoundation;
  * object. It is however recommended that you do return an object as it
  * protects yourself against XSSI and JSON-JavaScript Hijacking.
  *
- * @see https://www.owasp.org/index.blade.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside
+ * @see https://www.owasp.org/index.php/OWASP_AJAX_Security_Guidelines#Always_return_JSON_with_an_Object_on_the_outside
  *
  * @author Igor Wiedler <igor@wiedler.ch>
  */
@@ -31,9 +31,9 @@ class JsonResponse extends Response
     /**
      * Constructor.
      *
-     * @param mixed   $data    The response data
-     * @param int     $status  The response status code
-     * @param array   $headers An array of response headers
+     * @param mixed $data    The response data
+     * @param int   $status  The response status code
+     * @param array $headers An array of response headers
      */
     public function __construct($data = null, $status = 200, $headers = array())
     {

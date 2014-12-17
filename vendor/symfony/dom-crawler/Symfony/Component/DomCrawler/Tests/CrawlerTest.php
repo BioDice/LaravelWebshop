@@ -363,8 +363,7 @@ EOF
     public function testHtml()
     {
         $this->assertEquals('<img alt="Bar">', $this->createTestCrawler()->filterXPath('//a[5]')->html());
-        $this->assertEquals('<input type="text" value="TextValue" name="TextName"><input type="submit" value="FooValue" name="FooName" id="FooId"><input type="button" value="BarValue" name="BarName" id="BarId"><button value="ButtonValue" name="ButtonName" id="ButtonId"></button>'
-            , trim($this->createTestCrawler()->filterXPath('//form[@id="FooFormId"]')->html()));
+        $this->assertEquals('<input type="text" value="TextValue" name="TextName"><input type="submit" value="FooValue" name="FooName" id="FooId"><input type="button" value="BarValue" name="BarName" id="BarId"><button value="ButtonValue" name="ButtonName" id="ButtonId"></button>', trim($this->createTestCrawler()->filterXPath('//form[@id="FooFormId"]')->html()));
 
         try {
             $this->createTestCrawler()->filterXPath('//ol')->html();
@@ -676,9 +675,9 @@ EOF
 <html lang="en">
 <body>
     <div id="action">
-        <a href="/index.blade.php?r=site/login">Login</a>
+        <a href="/index.php?r=site/login">Login</a>
     </div>
-    <form id="login-form" action="/index.blade.php?r=site/login" method="post">
+    <form id="login-form" action="/index.php?r=site/login" method="post">
         <button type="submit" name="Click 'Here'">Submit</button>
     </form>
 </body>
@@ -697,9 +696,9 @@ HTML;
 <html lang="en">
 <body>
     <div id="action">
-        <a href="/index.blade.php?r=site/login">Login</a>
+        <a href="/index.php?r=site/login">Login</a>
     </div>
-    <form id="login-form" action="/index.blade.php?r=site/login" method="post">
+    <form id="login-form" action="/index.php?r=site/login" method="post">
         <button type="submit" name='Click "Here"'>Submit</button>
     </form>
 </body>
@@ -736,9 +735,9 @@ HTML;
 <html lang="en">
 <body>
     <div id="action">
-        <a href="/index.blade.php?r=site/login">Login</a>
+        <a href="/index.php?r=site/login">Login</a>
     </div>
-    <form id="login-form" action="/index.blade.php?r=site/login" method="post">
+    <form id="login-form" action="/index.php?r=site/login" method="post">
         <button type="submit">Submit</button>
     </form>
 </body>
