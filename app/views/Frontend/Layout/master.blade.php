@@ -61,7 +61,6 @@
                     <div class="cart_icon">
                         <a href="#" title="header=[Checkout] body=[&nbsp;] fade=[on]">
                             {{ HTML::image('images/shoppingcart.png', '', array("width" => "48", "height" => "48")) }}
-                            <img src="../../../../../../USBWebserver%20v8.6%20-%20kopie/root/Webshop/app/images/shoppingcart.png" alt="" width="48" height="48" border="0" />
                         </a>
                     </div>
               </div>

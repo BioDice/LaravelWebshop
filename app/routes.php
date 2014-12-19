@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@Home');
+Route::get('/home', 'HomeController@Home');
 Route::get('about', 'HomeController@About');
 Route::get('menu', 'HomeController@GetMenu');
 Route::get('login', 'AccountController@Login');
