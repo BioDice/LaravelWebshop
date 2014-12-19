@@ -27,7 +27,7 @@
     </div>
     <div id="main_content">
          <div id="menu_tab">
-              @yield('menu')
+              @include('Frontend.Menu.menu')
          </div>
          <!-- end of menu tab -->
          <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>

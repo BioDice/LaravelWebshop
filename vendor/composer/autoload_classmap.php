@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AccountController' => $baseDir . '/app/controllers/AccountController.php',
+    'BackendController' => $baseDir . '/app/controllers/BackendController.php',
     'Category' => $baseDir . '/app/models/Category.php',
     'CreateCategoriesTable' => $baseDir . '/app/database/migrations/2014_12_17_213202_create_categories_table.php',
     'CreateMenuitemsTable' => $baseDir . '/app/database/migrations/2014_12_17_221028_create_menuitems_table.php',
@@ -13,11 +15,16 @@ return array(
     'CreateOrdersproductsTable' => $baseDir . '/app/database/migrations/2014_12_17_213253_create_ordersproducts_table.php',
     'CreateProductTable' => $baseDir . '/app/database/migrations/2014_12_15_220103_create_product_table.php',
     'CreateUsersTable' => $baseDir . '/app/database/migrations/2014_12_17_213308_create_users_table.php',
+    'Cribbb\\Composers\\ComposerServiceProvider' => $baseDir . '/app/Cribbb/Composers/CompServiceProvider.php',
+    'Cribbb\\Composers\\CribbbListComposer' => $baseDir . '/app/Cribbb/Composers/CribbbListComposer.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
+    'FrontendController' => $baseDir . '/app/controllers/FrontendController.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'MenuItem' => $baseDir . '/app/models/MenuItem.php',
     'MenuItemsTableSeeder' => $baseDir . '/app/database/seeds/MenuItemsTableSeeder.php',
+    'Order' => $baseDir . '/app/models/Order.php',
+    'OrderProduct' => $baseDir . '/app/models/OrderProduct.php',
     'Product' => $baseDir . '/app/models/Product.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',

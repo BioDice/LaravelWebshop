@@ -1,16 +1,14 @@
 <?php
 
-class HomeController extends Controller {
+class HomeController extends FrontendController {
 
 	public function Home()
 	{
-        $menuItems = MenuItem::get();
-
-		return View::make('Home.home')->nest('menu', 'Menu.menu', compact('menuItems'));
+		return View::make('Frontend.Home.home');
 	}
 
     public function About()
     {
-        return View::make('Home.about');
+        return View::make('Frontend.Home.about');
     }
 }
