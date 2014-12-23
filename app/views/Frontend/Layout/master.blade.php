@@ -32,21 +32,7 @@
          <!-- end of menu tab -->
          <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>
          <div class="left_content">
-              <div class="title_box">Categories</div>
-              <ul class="left_menu">
-                   <li class="odd"><a href="#">Processors</a></li>
-                   <li class="even"><a href="#">Motherboards</a></li>
-                   <li class="odd"><a href="#">Desktops</a></li>
-                   <li class="even"><a href="#">Laptops &amp; Notebooks</a></li>
-                   <li class="odd"><a href="#">Processors</a></li>
-                   <li class="even"><a href="#">Motherboards</a></li>
-                   <li class="odd"><a href="#">Processors</a></li>
-                   <li class="even"><a href="#">Motherboards</a></li>
-                   <li class="odd"><a href="#">Desktops</a></li>
-                   <li class="even"><a href="#">Laptops &amp; Notebooks</a></li>
-                   <li class="odd"><a href="#">Processors</a></li>
-                   <li class="even"><a href="#">Motherboards</a></li>
-              </ul>
+            @include('Frontend.Category.categoryMenu')
          </div>
          <!-- end of left content -->
          <div class="center_content">
@@ -64,17 +50,17 @@
                         </a>
                     </div>
               </div>
-              <div class="title_box">Manufacturers</div>
-              <ul class="left_menu">
-                   <li class="odd"><a href="#">Sony</a></li>
-                   <li class="even"><a href="#">Samsung</a></li>
-                   <li class="odd"><a href="#">Daewoo</a></li>
-                   <li class="even"><a href="#">LG</a></li>
-                   <li class="odd"><a href="#">Fujitsu Siemens</a></li>
-                   <li class="even"><a href="#">Motorola</a></li>
-                   <li class="odd"><a href="#">Phillips</a></li>
-                   <li class="even"><a href="#">Beko</a></li>
-              </ul>
+              {{--<div class="title_box">Manufacturers</div>--}}
+              {{--<ul class="left_menu">--}}
+                   {{--<li class="odd"><a href="#">Sony</a></li>--}}
+                   {{--<li class="even"><a href="#">Samsung</a></li>--}}
+                   {{--<li class="odd"><a href="#">Daewoo</a></li>--}}
+                   {{--<li class="even"><a href="#">LG</a></li>--}}
+                   {{--<li class="odd"><a href="#">Fujitsu Siemens</a></li>--}}
+                   {{--<li class="even"><a href="#">Motorola</a></li>--}}
+                   {{--<li class="odd"><a href="#">Phillips</a></li>--}}
+                   {{--<li class="even"><a href="#">Beko</a></li>--}}
+              {{--</ul>--}}
          </div>
          <!-- end of right content -->
     </div>

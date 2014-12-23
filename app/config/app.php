@@ -122,7 +122,6 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Cribbb\Composers\ComposerServiceProvider'
-		//'App\Composers\MenuServiceProvider'
 	),
 
 	/*

@@ -1,11 +1,10 @@
 <?php namespace Cribbb\Composers;
 
-class CribbbListComposer {
+class MenuItemsComposer {
 
     public function compose($view)
     {
         $menuItems = \MenuItem::get();
         $view->with('menuItems', $menuItems);
     }
-
 }

@@ -4,7 +4,9 @@ class HomeController extends FrontendController {
 
 	public function Home()
 	{
-		return View::make('Frontend.Home.home');
+        $products = \Product::get();
+
+		return View::make('Frontend.Home.home', compact('products'));
 	}
 
     public function About()
