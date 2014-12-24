@@ -1,9 +1,11 @@
 @extends('Frontend.Layout.master')
 
+@section('breadcrumbs', DaveJamesMiller\Breadcrumbs\Facade::render('category', $category))
+
 @section('content')
 
     <div class="center_title_bar">{{ $category->name }}</div>
-    @foreach($category->products as $product)
+    @foreach($products as $product)
         <div class="prod_box">
             <div class="top_prod_box"></div>
             <div class="center_prod_box">

@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
@@ -9,11 +9,11 @@ class OrderProduct extends Eloquent {
 
     public function products()
     {
-        return $this->belongsTo('Product');
+        return $this->belongsTo('App\Models\Product');
     }
 
     public function orders()
     {
-        return $this->belongsTo('Order');
+        return $this->belongsTo('App\Models\Order');
     }
 }

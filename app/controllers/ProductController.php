@@ -1,7 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dev
- * Date: 23-12-2014
- * Time: 15:08
- */
+
+use \App\Models\Product;
+
+class ProductController extends FrontendController {
+
+    public function ViewDetails(Product $product)
+    {
+        return View::make('Frontend.Product.Details', compact('product'));
+    }
+}

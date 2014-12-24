@@ -1,17 +1,18 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Product;
+
 class CategoryRepo {
 
-    public function GetOrderedCategories()
+    public function GetProductsFromCatAndSubCat(Category $category)
     {
-        $categories = \Category::where('parentID', '=', '0')->get();
-
-        return $categories;
-    }
-
-    public function GetChildCategories($id)
-    {
-
+        $products = Product::where('categoryID', '=', $category->id)->get();
+        foreach ($category->children as $subCat) {
+            $p = Product::where('categoryID', '=', $subCat->id)->get();
+            $products = $products->merge($p);
+        }
+        return $products;
     }
 
 }

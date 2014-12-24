@@ -5,7 +5,6 @@
      <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
      {{ HTML::style("css/style.css") }}
      {{ HTML::script("js/boxOver.js") }}
-
 </head>
 <body>
 <div id="main_container">
@@ -27,40 +26,20 @@
     </div>
     <div id="main_content">
          <div id="menu_tab">
-              @include('Frontend.Menu.menu')
+            @include('Frontend.Menu.menu')
          </div>
          <!-- end of menu tab -->
-         <div class="crumb_navigation"> Navigation: <span class="current">Home</span> </div>
+        @yield('breadcrumbs')
          <div class="left_content">
             @include('Frontend.Category.categoryMenu')
          </div>
          <!-- end of left content -->
          <div class="center_content">
-              @yield('content')
+            @yield('content')
          </div>
          <!-- end of center content -->
          <div class="right_content">
-              <div class="shopping_cart">
-                   <div class="cart_title">Shopping cart</div>
-                   <div class="cart_details"> 3 items <br />
-                        <span class="border_cart"></span> Total: <span class="price">350$</span> </div>
-                    <div class="cart_icon">
-                        <a href="#" title="header=[Checkout] body=[&nbsp;] fade=[on]">
-                            {{ HTML::image('images/shoppingcart.png', '', array("width" => "48", "height" => "48")) }}
-                        </a>
-                    </div>
-              </div>
-              {{--<div class="title_box">Manufacturers</div>--}}
-              {{--<ul class="left_menu">--}}
-                   {{--<li class="odd"><a href="#">Sony</a></li>--}}
-                   {{--<li class="even"><a href="#">Samsung</a></li>--}}
-                   {{--<li class="odd"><a href="#">Daewoo</a></li>--}}
-                   {{--<li class="even"><a href="#">LG</a></li>--}}
-                   {{--<li class="odd"><a href="#">Fujitsu Siemens</a></li>--}}
-                   {{--<li class="even"><a href="#">Motorola</a></li>--}}
-                   {{--<li class="odd"><a href="#">Phillips</a></li>--}}
-                   {{--<li class="even"><a href="#">Beko</a></li>--}}
-              {{--</ul>--}}
+            @include('Frontend.Cart.miniCart')
          </div>
          <!-- end of right content -->
     </div>

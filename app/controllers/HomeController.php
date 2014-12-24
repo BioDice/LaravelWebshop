@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Product;
+
 class HomeController extends FrontendController {
 
 	public function Home()
 	{
-        $products = \Product::get();
+        $products = Product::get();
 
 		return View::make('Frontend.Home.home', compact('products'));
 	}

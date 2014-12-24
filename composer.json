@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"illuminate/html": "~4.2",
+		"davejamesmiller/laravel-breadcrumbs": "~2.3"
 	},
 	"autoload": {
 		"classmap": [

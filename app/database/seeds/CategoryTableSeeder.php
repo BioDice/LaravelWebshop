@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+
 class CategoryTableSeeder extends Seeder
 {
 

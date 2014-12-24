@@ -1,5 +1,7 @@
 @extends('Frontend.Layout.master')
 
+@section('breadcrumbs', DaveJamesMiller\Breadcrumbs\Facade::render())
+
 @section('content')
 
 <div class="center_title_bar">Latest Products</div>

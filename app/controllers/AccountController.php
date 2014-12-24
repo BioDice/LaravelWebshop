@@ -4,8 +4,6 @@ class AccountController extends FrontendController {
 
     public function Login()
     {
-        $menuItems = MenuItem::get();
-
         return View::make('Frontend.Authentication.login');
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\MenuItem;
+
 class MenuItemsTableSeeder extends Seeder
 {
 

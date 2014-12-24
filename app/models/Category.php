@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
@@ -8,7 +8,7 @@ class Category extends Eloquent {
 
     public function products()
     {
-        return $this->hasMany('Product', 'categoryID');
+        return $this->hasMany('App\Models\Product', 'categoryID');
     }
 
 //    public function parent()
@@ -18,11 +18,11 @@ class Category extends Eloquent {
 
     public function children()
     {
-        return $this->hasMany('Category', 'parentID');
+        return $this->hasMany('App\Models\Category', 'parentID');
     }
 
     public function parent()
     {
-        return $this->belongsTo('Category', 'parentID');
+        return $this->belongsTo('App\Models\Category', 'parentID');
     }
 }

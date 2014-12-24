@@ -4,7 +4,7 @@
     <div class="row">
         <div class="small-10 medium-6 large-6 small-centered columns">
             <section id="loginForm" class="panel" style="padding: 20px; min-width: 300px; min-height: 300px;">
-
+                {{ Form::open(array('action' => 'AccountController@login')) }}
                     <div class="row">
                         <div class="small-12 small-centered columns">
                             <img src="/images/HighFive_logo_small.png" style="display: block; margin: 0 auto; width: 50px; height: 50px; margin-bottom: 20px;" />
@@ -49,6 +49,7 @@
                             <input type="submit" value="Log in" class="button" style="width:100%;" />
                         </div>
                     </div>
+                {{ Form::close() }}
             </section>
         </div>
     </div>
