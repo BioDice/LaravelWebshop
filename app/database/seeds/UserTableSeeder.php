@@ -13,7 +13,7 @@ class UserTableSeeder extends Seeder
 
         User::create(array(
             'username' => 'admin',
-            'password' => '',
+            'password' => '$2a$10$dJDq62UV5WezqOJCarWwbuZwnWLr1FX0V63tZgnzkOOXLMbgCUul6 ',
             'created_at' => $now,
             'updated_at' => $now
         ));
