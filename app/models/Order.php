@@ -4,15 +4,15 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Order extends Eloquent {
 
-    protected $fillable = array('customerID', 'created_at', 'updated_at');
+    protected $fillable = array('userID', 'created_at', 'updated_at');
 
     public function ordersproducts()
     {
         return $this->belongsToMany('App\Models\OrderProduct');
     }
 
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo('App\Models\User', 'userID');
     }
 }

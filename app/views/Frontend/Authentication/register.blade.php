@@ -3,8 +3,6 @@
 @section('content')
     <h1>Register</h1>
     <div class="Encapsulation" style="padding: 10px;">
-
-
         <div class="center row">
             <div class="section-container tabs" data-section="tabs">
                 <section class="active">
@@ -42,6 +40,22 @@
                                                 <span class="prefix"><i class="fi-torso"></i></span>
                                             </div>
                                             <div class="small-10  columns">
+                                                {{ Form::text('address', null, ['placeholder' => 'address']) }}
+                                            </div>
+                                        </div>
+                                        <div class="row collapse">
+                                          <div class="small-2 columns">
+                                              <span class="prefix"><i class="fi-torso"></i></span>
+                                          </div>
+                                          <div class="small-10  columns">
+                                              {{ Form::text('postalcode', null, ['placeholder' => 'postalcode']) }}
+                                          </div>
+                                        </div>
+                                        <div class="row collapse">
+                                            <div class="small-2 columns">
+                                                <span class="prefix"><i class="fi-torso"></i></span>
+                                            </div>
+                                            <div class="small-10  columns">
                                                 {{ Form::text('username', null, ['placeholder' => 'username']) }}
                                             </div>
                                         </div>
@@ -62,7 +76,5 @@
                 </section>
             </div>
         </div>
-
-
     </div>
 @stop

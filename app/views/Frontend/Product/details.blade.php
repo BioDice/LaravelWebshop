@@ -29,7 +29,7 @@
                     {{ $product->long_descr }}
                 </p>
                 <br />
-                <a href="#" class="defaultButton">Bestel nu!</a>
+                {{ HTML::link('addproduct/'. $product->id. '', 'Bestel nu!', array('class' => 'defaultButton'))}}
             </div>
             <!-- end right content -->
         </div>

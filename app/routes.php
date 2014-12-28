@@ -10,17 +10,32 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+/* Models */
 Route::model('category', 'App\Models\Category');
 Route::model('product', 'App\Models\Product');
+Route::model('customer', 'App\Models\Customer');
 
+/* HomeController */
 Route::get('/', ['uses' => 'HomeController@Home', 'as' => 'home']);
 Route::get('home', ['uses' => 'HomeController@Home', 'as' => 'home']);
 Route::get('about', ['uses' => 'HomeController@About', 'as' => 'about']);
 Route::get('menu', ['uses' => 'HomeController@GetMenu', 'as' => 'menu']);
-Route::get('login', ['uses' => 'AccountController@Login', 'as' => 'login']);
+
+/* AccountController */
+Route::get('login', ['uses' => 'AccountController@login', 'as' => 'login'])->before('guest');
+Route::get('logout', ['uses' => 'AccountController@LogOutUser', 'as' => 'logout']);
 Route::get('register', ['uses' => 'AccountController@Register', 'as' => 'register']);
+Route::post('storeCustomer', ['uses' => 'AccountController@StoreCustomer', 'as' => 'customer.create']);
+Route::post('LoginUser', ['uses' => 'AccountController@LogInUser', 'as' => 'user.Login']);
+
+/* CategoryController */
 Route::get('ViewCategory/{category}', ['uses' => 'CategoryController@Index', 'as' => 'category']);
+
+/* ProductController */
 Route::get('productDetails/{product}', ['uses' => 'ProductController@ViewDetails', 'as' => 'product']);
 
-Route::post('storeCustomer', ['uses' => 'AccountController@StoreCustomer', 'as' => 'customer.create']);
+/* CartController */
+Route::get('cart', ['uses' => 'CartController@CartContent', 'as' => 'cart.content']);
+Route::get('addproduct/{product}', ['uses' => 'CartController@AddProduct', 'as' => 'cart.addproduct']);
+
+/* Admin routes */

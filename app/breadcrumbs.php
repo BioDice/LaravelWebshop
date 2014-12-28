@@ -9,6 +9,11 @@ Breadcrumbs::register('about', function($breadcrumbs) {
     $breadcrumbs->push('About us', route('about'));
 });
 
+Breadcrumbs::register('cart.content', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Cart', route('cart.content'));
+});
+
 Breadcrumbs::register('category', function($breadcrumbs, $category) {
     $breadcrumbs->parent('home');
     $cat = $category;
