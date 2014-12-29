@@ -20,6 +20,7 @@ Route::get('/', ['uses' => 'HomeController@Home', 'as' => 'home']);
 Route::get('home', ['uses' => 'HomeController@Home', 'as' => 'home']);
 Route::get('about', ['uses' => 'HomeController@About', 'as' => 'about']);
 Route::get('menu', ['uses' => 'HomeController@GetMenu', 'as' => 'menu']);
+Route::get('search', ['uses' => 'HomeController@Search', 'as' => 'home.search']);
 
 /* AccountController */
 Route::get('login', ['uses' => 'AccountController@login', 'as' => 'login'])->before('guest');
@@ -37,5 +38,10 @@ Route::get('productDetails/{product}', ['uses' => 'ProductController@ViewDetails
 /* CartController */
 Route::get('cart', ['uses' => 'CartController@CartContent', 'as' => 'cart.content']);
 Route::get('addproduct/{product}', ['uses' => 'CartController@AddProduct', 'as' => 'cart.addproduct']);
+
+/* CheckoutController */
+Route::get('checkout', ['uses' => 'CheckoutController@Checkout', 'as' => 'checkout.checkout']);
+Route::post('createorder', ['uses' => 'CheckoutController@CreateOrder', 'as' => 'checkout.create']);
+Route::get('final', ['uses' => 'CheckoutController@Final', 'as' => 'checkout.final']);
 
 /* Admin routes */

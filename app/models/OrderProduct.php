@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class OrderProduct extends Eloquent {
 
     protected $table = 'ordersproducts';
-    protected $fillable = array('name', 'parentid', 'created_at', 'updated_at');
+    protected $fillable = array('ordersproducts_orderID', 'ordersproducts_productID', 'amount', 'created_at', 'updated_at');
 
     public function products()
     {

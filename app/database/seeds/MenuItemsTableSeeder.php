@@ -42,5 +42,13 @@ class MenuItemsTableSeeder extends Seeder
             'created_at' => $now,
             'updated_at' => $now
         ));
+
+        MenuItem::create(array(
+            'name' => 'Profile',
+            'url' => 'profile',
+            'class' => 'nav6',
+            'created_at' => $now,
+            'updated_at' => $now
+        ));
     }
 }

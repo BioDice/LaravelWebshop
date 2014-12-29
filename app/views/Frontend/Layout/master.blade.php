@@ -4,26 +4,36 @@
     <title>Electronix Store</title>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
     {{ HTML::style("css/frontend/foundation.css") }}
+
     {{ HTML::style("css/style.css") }}
+{{ HTML::style("//cdn.datatables.net/plug-ins/3cfcc339e89/integration/foundation/dataTables.foundation.css") }}
+
+    {{ HTML::script("//code.jquery.com/jquery-1.11.1.min.js") }}
+    {{ HTML::script("//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js") }}
+    {{ HTML::script("//cdn.datatables.net/plug-ins/3cfcc339e89/integration/foundation/dataTables.foundation.js") }}
 
     {{ HTML::script("js/boxOver.js") }}
+
+    <script>
+        $(document).ready(function() {
+            $('.dataTable').dataTable();
+
+            $("#search").click(function () {
+                $("#submitSearch").click();
+            });
+        } );
+    </script>
 </head>
 <body>
 <div id="main_container">
     <div class="top_bar">
          <div class="top_search">
-              <div class="search_text"><a href="#">Advanced Search</a></div>
-              <input type="text" class="search_input" name="search" />
-              {{ HTML::image('images/search.gif', 'search', array('class' => 'search_bt')) }}
-         </div>
-         <div class="languages">
-              <div class="lang_text">Languages:</div>
-              <a href="#" class="lang">
-                   {{ HTML::image('images/en.gif', 'english', array()) }}
-              </a>
-              <a href="#" class="lang">
-                  {{ HTML::image('images/de.gif', 'German', array()) }}
-              </a>
+              <div class="search_text" style="width: initial; text-align: right; margin-right: 5px; float: left;">Search </div>
+              {{ Form::open(['method' => 'get', 'route' => 'home.search', 'id' => 'searchForm']) }}
+                  {{ Form::text('search', null, ['style' => 'padding: 0 5px; width: 180px; float: left; height: 23px; margin: 5px;']) }}
+                  <a href="#" id="search">{{ HTML::image('images/search.gif', 'search', array('class' => 'search_bt')) }}</a>
+                  <input type="submit" style="display: none" id="submitSearch" />
+              {{ Form::close() }}
          </div>
     </div>
     <div id="main_content">
@@ -60,5 +70,10 @@
     </div>
 </div>
 <!-- end of main_container -->
+
+{{ Html::script('js/foundation.min.js') }}
+<script>
+    $(document).foundation();
+</script>
 </body>
 </html>

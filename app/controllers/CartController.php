@@ -2,26 +2,49 @@
 
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
+use App\Models\CartEntry;
 
 class CartController extends FrontendController {
 
     public function CartContent()
     {
-        return View::make('Frontend.Cart.content');
+        $cartEntries = Session::get('productsInCart');
+
+        return View::make('Frontend.Cart.content', compact('cartEntries'));
     }
 
     public function AddProduct(Product $product)
     {
         if (Session::has('productsInCart'))
         {
-            $arr = Session::get('productsInCart');
-            array_push($arr, $product);
-            Session::push('productsInCart', $arr);
+            $cartEntries = Session::pull('productsInCart');
+            $temp = null;
+            foreach ($cartEntries as $cartEntry)
+            {
+                if ($cartEntry->GetProduct()->id == $product->id)
+                {
+                    $temp = $cartEntry;
+                    break;
+                }
+            }
+
+            if ($temp != null)
+            {
+                $cartEntry->Increment();
+            }
+            else
+            {
+                $temp = new CartEntry($product, 1);
+                array_push($cartEntries, $temp);
+            }
+            Session::put('productsInCart', $cartEntries);
         }
         else
         {
             $arr = array();
-            Session::push('productsInCart', $arr);
+            $pic = new CartEntry($product, 1);
+            array_push($arr, $pic);
+            Session::put('productsInCart', $arr);
         }
 
         return Redirect::back();

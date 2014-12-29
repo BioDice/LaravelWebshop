@@ -23,7 +23,7 @@
             <!-- start right content -->
             <div style="float: right; width: 50%;">
                 <p>
-                    <h2>{{ $product->price }}</h2>
+                    <h2>€ {{ $product->price }}</h2>
                 </p>
                 <p>
                     {{ $product->long_descr }}

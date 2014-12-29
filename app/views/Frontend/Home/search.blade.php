@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="center_title_bar">Latest Products</div>
+<div class="center_title_bar">Search results</div>
 @foreach($products as $product)
     <div class="prod_box">
         <div class="top_prod_box"></div>
@@ -15,6 +15,7 @@
         </div>
         <div class="bottom_prod_box"></div>
         <div class="prod_details_tab">
+
             <a href="/addproduct/{{ $product->id }}" title="header=[Add to cart] body=[&nbsp;] fade=[on]">
                 {{ HTML::image('images/cart.gif', 'cart', array('class' => 'left_bt')) }}
             </a>

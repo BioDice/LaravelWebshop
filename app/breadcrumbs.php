@@ -14,6 +14,21 @@ Breadcrumbs::register('cart.content', function($breadcrumbs) {
     $breadcrumbs->push('Cart', route('cart.content'));
 });
 
+Breadcrumbs::register('checkout.checkout', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Checkout', route('checkout.checkout'));
+});
+
+Breadcrumbs::register('checkout.create', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Final', route('checkout.create'));
+});
+
+Breadcrumbs::register('home.search', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Search', route('home.search'));
+});
+
 Breadcrumbs::register('category', function($breadcrumbs, $category) {
     $breadcrumbs->parent('home');
     $cat = $category;

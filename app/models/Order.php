@@ -8,7 +8,7 @@ class Order extends Eloquent {
 
     public function ordersproducts()
     {
-        return $this->belongsToMany('App\Models\OrderProduct');
+        return $this->hasMany('App\Models\OrderProduct');
     }
 
     public function user()

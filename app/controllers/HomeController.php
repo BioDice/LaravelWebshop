@@ -15,4 +15,14 @@ class HomeController extends FrontendController {
     {
         return View::make('Frontend.Home.about');
     }
+
+    public function Search()
+    {
+        $products = Product::where(function($query) {
+            $query->where('short_descr', 'like', '%'.Input::get('search').'%')->orWhere('long_descr', 'like', '%'.Input::get('search').'%');
+        })->get();
+
+
+        return View::make('Frontend.Home.search', compact('products'));
+    }
 }
