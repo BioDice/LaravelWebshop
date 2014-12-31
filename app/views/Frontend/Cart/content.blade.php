@@ -29,24 +29,24 @@
             </thead>
             <tbody>
                 @foreach ($cartEntries as $cartEntry)
-                <tr>
-                    <td>
-                         <a href="/productDetails/{{ $cartEntry->GetProduct()->id }}">{{ HTML::image('images/products/' . $cartEntry->GetProduct()->small_image, $cartEntry->GetProduct()->short_descr, array()) }}</a>
-                         {{ $cartEntry->GetProduct()->short_descr }}
-                    </td>
-                    <td>
-                        € {{ $cartEntry->GetProduct()->price }}
-                    </td>
-                    <td>
-                        {{ $cartEntry->GetAmount() }}
-                    </td>
-                    <td>
-                        € {{ $cartEntry->GetTotalPrice() }}
-                    </td>
-                    <td>
-                        <a href="">Verwijderen</a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                             <a href="/productDetails/{{ $cartEntry->GetProduct()->id }}">{{ HTML::image('images/products/' . $cartEntry->GetProduct()->small_image, $cartEntry->GetProduct()->short_descr, array()) }}</a>
+                             {{ $cartEntry->GetProduct()->short_descr }}
+                        </td>
+                        <td>
+                            € {{ $cartEntry->GetProduct()->price }}
+                        </td>
+                        <td>
+                            <input type="number" id="txtValue_{{ $cartEntry->GetProduct()->id }}" value="{{ $cartEntry->GetAmount() }}" onkeypress="return isNumber(event);" onchange="changeAmount({{ $cartEntry->GetProduct()->id }})" />
+                        </td>
+                        <td>
+                            € {{ $cartEntry->GetTotalPrice() }}
+                        </td>
+                        <td>
+                            <a href="deleteproduct/{{ $cartEntry->GetProduct()->id }}">Verwijderen</a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

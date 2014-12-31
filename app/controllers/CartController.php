@@ -3,6 +3,7 @@
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use App\Models\CartEntry;
+use Illuminate\Support\Facades\Input;
 
 class CartController extends FrontendController {
 
@@ -17,7 +18,7 @@ class CartController extends FrontendController {
     {
         if (Session::has('productsInCart'))
         {
-            $cartEntries = Session::pull('productsInCart');
+            $cartEntries = Session::get('productsInCart');
             $temp = null;
             foreach ($cartEntries as $cartEntry)
             {
@@ -47,6 +48,40 @@ class CartController extends FrontendController {
             Session::put('productsInCart', $arr);
         }
 
+        return Redirect::back();
+    }
+
+    public function ChangeAmountProduct()
+    {
+        $cartEntries = Session::get('productsInCart');
+        foreach ($cartEntries as $cartEntry)
+        {
+            if ($cartEntry->GetProduct()->id == Input::get('productID'))
+            {
+                $cartEntry->SetAmount(Input::get('amount'));
+                break;
+            }
+        }
+        Session::put('productsInCart', $cartEntries);
+        return Redirect::back();
+    }
+
+    public function DeleteProduct(Product $product)
+    {
+        $cartEntries = Session::get('productsInCart');
+
+        foreach ($cartEntries as $cartEntry)
+        {
+            if ($cartEntry->GetProduct()->id == $product->id)
+            {
+                // search for the right index and delete it immediatly from array
+                unset($cartEntries[array_search($cartEntry, $cartEntries)]);
+                // set he indexes to normal again
+                $cartEntries = array_values($cartEntries);
+                break;
+            }
+        }
+        Session::put('productsInCart', $cartEntries);
         return Redirect::back();
     }
 }

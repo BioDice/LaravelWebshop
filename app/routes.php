@@ -10,6 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
 /* Models */
 Route::model('category', 'App\Models\Category');
 Route::model('product', 'App\Models\Product');
@@ -38,10 +39,14 @@ Route::get('productDetails/{product}', ['uses' => 'ProductController@ViewDetails
 /* CartController */
 Route::get('cart', ['uses' => 'CartController@CartContent', 'as' => 'cart.content']);
 Route::get('addproduct/{product}', ['uses' => 'CartController@AddProduct', 'as' => 'cart.addproduct']);
+Route::get('changeamount', ['uses' => 'CartController@ChangeAmountProduct', 'as' => 'cart.changeamount']);
+Route::get('deleteproduct/{product}', ['uses' => 'CartController@DeleteProduct', 'as' => 'cart.deleteproduct']);
 
 /* CheckoutController */
 Route::get('checkout', ['uses' => 'CheckoutController@Checkout', 'as' => 'checkout.checkout']);
 Route::post('createorder', ['uses' => 'CheckoutController@CreateOrder', 'as' => 'checkout.create']);
 Route::get('final', ['uses' => 'CheckoutController@Final', 'as' => 'checkout.final']);
 
+/****************/
 /* Admin routes */
+/****************/

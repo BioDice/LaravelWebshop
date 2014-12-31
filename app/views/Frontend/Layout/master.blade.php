@@ -70,7 +70,8 @@
     </div>
 </div>
 <!-- end of main_container -->
-
+{{ Html::script('js/utilities/NumberOnly.js') }}
+{{ Html::script('js/utilities/ChangeAmountProduct.js') }}
 {{ Html::script('js/foundation.min.js') }}
 <script>
     $(document).foundation();
