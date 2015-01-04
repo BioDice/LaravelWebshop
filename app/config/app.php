@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
 		'Cribbb\Composers\ComposerServiceProvider',
-		'DaveJamesMiller\Breadcrumbs\ServiceProvider'
+		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+        'Intervention\Image\ImageServiceProvider'
 	),
 
 	/*
@@ -190,7 +191,8 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-		'Breadcrumbs'		=> 'DaveJamesMiller\Breadcrumbs\Facade'
+		'Breadcrumbs'		=> 'DaveJamesMiller\Breadcrumbs\Facade',
+        'Image'             => 'Intervention\Image\Facades\Image'
 	),
 
 );

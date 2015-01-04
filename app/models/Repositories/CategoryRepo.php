@@ -15,4 +15,15 @@ class CategoryRepo {
         return $products;
     }
 
+    public function GetArrayCategories()
+    {
+        $categories = Category::get();
+        $arrCats = array();
+        foreach ($categories as $category)
+        {
+            $arrCats[$category->id] = $category->name;
+        }
+
+        return $arrCats;
+    }
 }

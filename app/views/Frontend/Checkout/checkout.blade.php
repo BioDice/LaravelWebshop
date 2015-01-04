@@ -58,7 +58,7 @@
 
     </div>
     <div class="small-12 columns">
-         <table class="dataTable">
+         <table>
             <thead>
                 <tr>
                     <th>

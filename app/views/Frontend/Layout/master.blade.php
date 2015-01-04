@@ -6,7 +6,7 @@
     {{ HTML::style("css/frontend/foundation.css") }}
 
     {{ HTML::style("css/style.css") }}
-{{ HTML::style("//cdn.datatables.net/plug-ins/3cfcc339e89/integration/foundation/dataTables.foundation.css") }}
+    {{ HTML::style("//cdn.datatables.net/plug-ins/3cfcc339e89/integration/foundation/dataTables.foundation.css") }}
 
     {{ HTML::script("//code.jquery.com/jquery-1.11.1.min.js") }}
     {{ HTML::script("//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js") }}

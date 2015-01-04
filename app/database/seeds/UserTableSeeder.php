@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
         User::create(array(
             'username' => 'admin',
             'password' => \Hash::make('admin'),
-            'roleID' => '1',
+            'roleID' => 1,
             'firstname' => 'admin',
             'lastname' => 'admin',
             'address' => 'admin',

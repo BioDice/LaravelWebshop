@@ -7,13 +7,13 @@ class OrderProduct extends Eloquent {
     protected $table = 'ordersproducts';
     protected $fillable = array('ordersproducts_orderID', 'ordersproducts_productID', 'amount', 'created_at', 'updated_at');
 
-    public function products()
+    public function product()
     {
-        return $this->belongsTo('App\Models\Product');
+        return $this->belongsTo('App\Models\Product', 'ordersproducts_productID');
     }
 
-    public function orders()
+    public function order()
     {
-        return $this->belongsTo('App\Models\Order');
+        return $this->belongsTo('App\Models\Order', 'ordersproducts_orderID');
     }
 }

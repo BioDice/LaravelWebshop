@@ -32,7 +32,7 @@ class AccountController extends FrontendController {
             // we are now logged in
             $user = Auth::user();
             if ($user->IsAdmin())
-                return Redirect::to('admin.dashboard');
+                return Redirect::route('admin.dashboard');
             else
                 return Redirect::to('home');
         }

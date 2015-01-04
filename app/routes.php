@@ -50,3 +50,24 @@ Route::get('final', ['uses' => 'CheckoutController@Final', 'as' => 'checkout.fin
 /****************/
 /* Admin routes */
 /****************/
+/* _BHomeController */
+Route::get('admin', ['uses' => '_BHomeController@Home', 'as' => 'admin.dashboard'])->before('admin');
+
+/* _BProductController */
+Route::get('admin/product', ['uses' => '_BProductController@Index', 'as' => 'admin.product.index'])->before('admin');
+Route::get('admin/product/create', ['uses' => '_BProductController@Create', 'as' => 'admin.product.create'])->before('admin');
+Route::get('admin/product/edit/{product}', ['uses' => '_BProductController@Edit', 'as' => 'admin.product.edit'])->before('admin');
+Route::get('admin/product/delete/{product}', ['uses' => '_BProductController@Delete', 'as' => 'admin.product.delete'])->before('admin');
+Route::post('admin/product/post_create', ['uses' => '_BProductController@PostCreate', 'as' => 'admin.product.post_create'])->before('admin');
+Route::post('admin/product/post_edit', ['uses' => '_BProductController@PostEdit', 'as' => 'admin.product.post_edit'])->before('admin');
+
+/* _BCategoryController */
+Route::get('admin/category', ['uses' => '_BCategoryController@Index', 'as' => 'admin.category.index'])->before('admin');
+Route::get('admin/category/create', ['uses' => '_BCategoryController@Create', 'as' => 'admin.category.create'])->before('admin');
+Route::get('admin/category/edit/{category}', ['uses' => '_BCategoryController@Edit', 'as' => 'admin.category.edit'])->before('admin');
+Route::get('admin/category/delete/{category}', ['uses' => '_BCategoryController@Delete', 'as' => 'admin.category.delete'])->before('admin');
+Route::post('admin/category/post_create', ['uses' => '_BCategoryController@PostCreate', 'as' => 'admin.category.post_create'])->before('admin');
+Route::post('admin/category/post_edit', ['uses' => '_BCategoryController@PostEdit', 'as' => 'admin.category.post_edit'])->before('admin');
+
+/* _BOrderController */
+Route::get('admin/order', ['uses' => '_BOrderController@Index', 'as' => 'admin.order.index'])->before('admin');

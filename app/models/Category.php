@@ -8,13 +8,8 @@ class Category extends Eloquent {
 
     public function products()
     {
-        return $this->hasMany('App\Models\Product', 'categoryID');
+        return $this->hasMany('App\Models\Product');
     }
-
-//    public function parent()
-//    {
-//        return $this->belongsTo('Category', 'parentid');
-//    }
 
     public function children()
     {

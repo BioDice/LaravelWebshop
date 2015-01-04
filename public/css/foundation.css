@@ -6311,3 +6311,7 @@ ul.pagination li {
 .pagination-centered ul.pagination li {
     float: none;
     display: inline-block; }
+
+table {
+    width: 100%;
+}

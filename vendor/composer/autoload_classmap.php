@@ -47,4 +47,8 @@ return array(
     'Whoops\\Module' => $vendorDir . '/filp/whoops/src/deprecated/Zend/Module.php',
     'Whoops\\Provider\\Zend\\ExceptionStrategy' => $vendorDir . '/filp/whoops/src/deprecated/Zend/ExceptionStrategy.php',
     'Whoops\\Provider\\Zend\\RouteNotFoundStrategy' => $vendorDir . '/filp/whoops/src/deprecated/Zend/RouteNotFoundStrategy.php',
+    '_BCategoryController' => $baseDir . '/app/controllers/Backend/_BCategoryController.php',
+    '_BHomeController' => $baseDir . '/app/controllers/Backend/_BHomeController.php',
+    '_BOrderController' => $baseDir . '/app/controllers/Backend/_BOrderController.php',
+    '_BProductController' => $baseDir . '/app/controllers/Backend/_BProductController.php',
 );

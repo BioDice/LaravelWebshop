@@ -10,7 +10,7 @@
             <div class="top_prod_box"></div>
             <div class="center_prod_box">
                 <div class="product_title"><a href="/productDetails/{{ $product->id }}">{{ $product->short_descr }}</a></div>
-                <div class="product_img"><a href="/productDetails/{{ $product->id }}">{{ HTML::image('images/products/' . $product->small_image, $product->name, array()) }}</a></div>
+                <div class="product_img"><a href="/productDetails/{{ $product->id }}">{{ HTML::image('images/products/' . $product->small_image, $product->short_descr, array()) }}</a></div>
                 <div class="prod_price"><span class="price">€ {{ $product->price }}</span></div>
             </div>
             <div class="bottom_prod_box"></div>
