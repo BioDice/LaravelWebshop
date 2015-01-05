@@ -31,6 +31,19 @@ class Generator
         call_user_func_array($this->callbacks[$name], $params);
     }
 
+    public function unshift($title, $url = null, array $data = array())
+    {
+        $this->breadcrumbs[] = (object) array_replace( array(
+            'title' => $title,
+            'url' => $url,
+            // These will be altered later where necessary:
+            'first' => false,
+            'last' => false,
+        ), $data);
+        //dd($this->breadcrumbs);
+    }
+
+
     public function parent($name)
     {
         $params = array_slice(func_get_args(), 1);

@@ -15,6 +15,7 @@
 Route::model('category', 'App\Models\Category');
 Route::model('product', 'App\Models\Product');
 Route::model('customer', 'App\Models\Customer');
+Route::model('order', 'App\Models\Order');
 
 /* HomeController */
 Route::get('/', ['uses' => 'HomeController@Home', 'as' => 'home']);
@@ -71,3 +72,11 @@ Route::post('admin/category/post_edit', ['uses' => '_BCategoryController@PostEdi
 
 /* _BOrderController */
 Route::get('admin/order', ['uses' => '_BOrderController@Index', 'as' => 'admin.order.index'])->before('admin');
+Route::get('admin/order/edit/{order}', ['uses' => '_BOrderController@Edit', 'as' => 'admin.order.edit'])->before('admin');
+Route::get('admin/order/delete/{order}', ['uses' => '_BOrderController@Delete', 'as' => 'admin.order.delete'])->before('admin');
+Route::get('admin/order/deleteproduct/{order}/{product}', ['uses' => '_BOrderController@DeleteProduct', 'as' => 'admin.order.deleteproduct'])->before('admin');
+Route::get('admin/order/addproduct/{order}/{product}', ['uses' => '_BOrderController@AddProduct', 'as' => 'admin.order.addproduct'])->before('admin');
+Route::get('admin/order/changeamount', ['uses' => '_BOrderController@ChangeAmount', 'as' => 'admin.order.changeamount'])->before('admin');
+Route::post('admin/order/getaddproducttable', ['uses' => '_BOrderController@GetAddProductTable', 'as' => 'admin.order.getaddproductTable'])->before('admin');
+Route::post('admin/order/post_edit', ['uses' => '_BOrderController@PostEdit', 'as' => 'admin.order.post_edit'])->before('admin');
+

@@ -6,9 +6,14 @@ class Order extends Eloquent {
 
     protected $fillable = array('userID', 'created_at', 'updated_at');
 
-    public function ordersproducts()
+//    public function ordersproducts()
+//    {
+//        return $this->hasMany('App\Models\OrderProduct');
+//    }
+
+    public function products()
     {
-        return $this->hasMany('App\Models\OrderProduct');
+        return $this->belongsToMany('App\Models\Product', 'ordersproducts')->withPivot('amount');
     }
 
     public function user()

@@ -12,6 +12,7 @@ class CheckoutController extends FrontendController {
     public function Checkout()
     {
         $cartEntries = Session::get('productsInCart');
+        if ($cartEntries == null) $cartEntries = array();
         $user = Auth::user();
 
         return View::make('Frontend.Checkout.checkout', compact('cartEntries', 'user'));
@@ -34,12 +35,16 @@ class CheckoutController extends FrontendController {
         $order->save();
 
         foreach (Session::get('productsInCart') as $cartEntry) {
-            $pivot = new OrderProduct;
-            $pivot->ordersproducts_orderID = $order->id;
-            $pivot->ordersproducts_productID = $cartEntry->GetProduct()->id;
-            $pivot->amount = $cartEntry->GetAmount();
-            $pivot->save();
+            $order->products()->attach($cartEntry->GetProduct()->id, array('amount' => $cartEntry->GetAmount()));
         }
+
+//        foreach (Session::get('productsInCart') as $cartEntry) {
+//            $pivot = new OrderProduct;
+//            $pivot->ordersproducts_orderID = $order->id;
+//            $pivot->ordersproducts_productID = $cartEntry->GetProduct()->id;
+//            $pivot->amount = $cartEntry->GetAmount();
+//            $pivot->save();
+//        }
 
         Session::forget('productsInCart');
         return View::make('Frontend.Checkout.final', compact('user', 'order'));

@@ -4,20 +4,12 @@ function changeAmount(id)
         function(returnedData){
             location.reload();
         });
-    /*
-    $.ajax({
-        url: '/changeamount',
-        type: 'post',
-        data: { productID : id, amount : $("#txtValue_" + id).val() },
-        beforeSend: function() {
-            $("#validation-errors").hide().empty();
-        },
-        success: function(data) {
-        },
-        error: function(xhr, textStatus, thrownError) {
-            alert('Something went to wrong.Please Try again later...');
-        }
-    });
-    return false;
-    */
+}
+
+function changeAmountOrder(id)
+{
+    $.get('/admin/order/changeamount', { orderID : $("#OrderID").val(), productID : id, amount : $("#amount_" + id).val() },
+        function(returnedData){
+            location.reload();
+        });
 }

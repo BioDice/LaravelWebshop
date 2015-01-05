@@ -25,20 +25,18 @@
                                 {{ $order->created_at }}
                             </td>
                             <td>
-                            {{ dd($order->ordersproducts) }}
                                 <?php
                                     $totalProducts = 0;
-
-                                    foreach($order->ordersproducts as $op)
+                                    foreach($order->products as $product)
                                     {
-                                        $totalProducts += $op->amount;
+                                        $totalProducts += $product->pivot->amount;
                                     }
                                 ?>
                                 {{ $totalProducts }}
                             </td>
                             <td>
-                                <a href="/admin/category/edit/{{ $order->id }}">Edit</a> |
-                                <a href="/admin/category/delete/{{ $order->id }}">Delete</a>
+                                <a href="/admin/order/edit/{{ $order->id }}">Edit</a> |
+                                <a href="/admin/order/{{ $order->id }}">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -47,4 +45,5 @@
         </div>
     </div>
 </fieldset>
+
 @stop

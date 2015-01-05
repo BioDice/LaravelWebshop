@@ -26,4 +26,35 @@ class CategoryRepo {
 
         return $arrCats;
     }
+
+    public function GetOrderedCategories()
+    {
+        $categories = Category::where('parentID', '=', '0')->get();
+        $retVal = array();
+
+        foreach ($categories as $category)
+        {
+            array_push($retVal, $category);
+            $this->SeekThroughCat($category, $retVal);
+
+        }
+
+        return $retVal;
+    }
+
+    public function SeekThroughCat($category, &$retVal)
+    {
+        foreach ($category->children as $child)
+        {
+            if (count($child->children) == 0)
+            {
+                array_push($retVal, $child);
+            }
+            else
+            {
+                array_push($retVal, $child);
+                $this->SeekThroughCat($child, $retVal);
+            }
+        }
+    }
 }

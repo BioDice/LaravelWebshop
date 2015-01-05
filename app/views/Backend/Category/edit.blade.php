@@ -3,7 +3,7 @@
 @section('adminContent')
 
 <fieldset>
-<legend>Create category</legend>
+<legend>Edit category</legend>
 {{ Form::model($category, array('route' => array('admin.category.post_edit', $category->id))) }}
 {{ Form::hidden('id', $category->id) }}
     <div class="row">

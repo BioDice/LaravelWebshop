@@ -10,6 +10,7 @@ class CartController extends FrontendController {
     public function CartContent()
     {
         $cartEntries = Session::get('productsInCart');
+        if ($cartEntries == null) $cartEntries = array();
 
         return View::make('Frontend.Cart.content', compact('cartEntries'));
     }

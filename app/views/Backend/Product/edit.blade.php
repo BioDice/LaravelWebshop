@@ -50,6 +50,8 @@
                         <label>
                             Image
                             {{ Form::file('image') }}
+                            <br />
+                            {{ HTML::image('images/products/' . $product->small_image, $product->short_descr, array()) }}
                         </label>
                     </div>
                 </div>

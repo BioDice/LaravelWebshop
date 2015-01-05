@@ -3,14 +3,17 @@
 <ul class="left_menu">
     @foreach($categories as $category)
 
+        <?php
+            $dashes = "";
+            $temp = $category;
+            while ($temp->parent != null)
+            {
+                $dashes .= "-";
+                $temp = $temp->parent;
+            }
+        ?>
         <li class="odd">
-            <a href="/ViewCategory/{{ $category->id }}">{{ $category->name }}</a>
+            <a href="/ViewCategory/{{ $category->id }}">{{ $dashes . " " . $category->name }}</a>
         </li>
-
-        @foreach($category->children as $child)
-            <li class="odd">
-                <a href="/ViewCategory/{{ $child->id }}"> - {{ $child->name }}</a>
-            </li>
-        @endforeach
     @endforeach
 </ul>

@@ -10,4 +10,9 @@ class Product extends Eloquent {
     {
         return $this->belongsTo('App\Models\Category', 'categoryID');
     }
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Models\Order'/*, 'ordersproducts'*/);
+    }
 }

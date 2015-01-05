@@ -35,9 +35,12 @@ Breadcrumbs::register('category', function($breadcrumbs, $category) {
     while ($cat->parent != null)
     {
         $temp = $cat->parent;
-        $breadcrumbs->push($temp->name, route('category', $temp->id));
+        //array_unshift($test, {'title' => $temp->name, 'url' => route('category', $temp->id)});
+        $breadcrumbs->unshift($temp->name, route('category', $temp->id));
         $cat = $temp;
     }
+
+    //$breadcrumbs->push($temp->name, route('category', $temp->id));
 
     $breadcrumbs->push($category->name, route('category', $category->id));
 });
