@@ -35,24 +35,24 @@ Breadcrumbs::register('customer.profile', function($breadcrumbs) {
 });
 
 Breadcrumbs::register('customer.checkorder', function($breadcrumbs) {
-    $breadcrumbs->parent('home');
+    $breadcrumbs->parent('customer.profile');
     $breadcrumbs->push('Order', route('customer.checkorder'));
 });
 
 Breadcrumbs::register('category', function($breadcrumbs, $category) {
     $breadcrumbs->parent('home');
+    $temp = array();
     $cat = $category;
     while ($cat->parent != null)
     {
-        $temp = $cat->parent;
-        //array_unshift($test, {'title' => $temp->name, 'url' => route('category', $temp->id)});
-        $breadcrumbs->unshift($temp->name, route('category', $temp->id));
-        $cat = $temp;
+        array_unshift($temp, $cat);
+        $cat = $cat->parent;
     }
-
-    //$breadcrumbs->push($temp->name, route('category', $temp->id));
-
-    $breadcrumbs->push($category->name, route('category', $category->id));
+    array_unshift($temp, $cat);
+    foreach ($temp as $category)
+    {
+        $breadcrumbs->push($category->name, route('category', $category->id));
+    }
 });
 
 Breadcrumbs::register('product', function($breadcrumbs, $product) {

@@ -8,10 +8,20 @@ class CategoryRepo {
     public function GetProductsFromCatAndSubCat(Category $category)
     {
         $products = Product::where('categoryID', '=', $category->id)->get();
-        foreach ($category->children as $subCat) {
-            $p = Product::where('categoryID', '=', $subCat->id)->get();
+
+        $retVal = array();
+        array_push($retVal, $category);
+        $this->SeekThroughCat($category, $retVal);
+
+        foreach ($retVal as $cat) {
+            $p = Product::where('categoryID', '=', $cat->id)->get();
             $products = $products->merge($p);
         }
+
+//        foreach ($category->children as $subCat) {
+//            $p = Product::where('categoryID', '=', $subCat->id)->get();
+//            $products = $products->merge($p);
+//        }
         return $products;
     }
 
