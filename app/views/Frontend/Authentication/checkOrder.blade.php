@@ -42,6 +42,29 @@
                         </td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                    <?php
+                        $count = 0;
+                        foreach ($order->products as $product)
+                        {
+                            $count += $product->pivot->amount;
+                        }
+                    ?>
+                    {{ $count }}
+                    </td>
+                    <td>
+                        <?php
+                            $totalPrice = 0;
+                            foreach ($order->products as $product)
+                            {
+                                $totalPrice += $product->pivot->amount * $product->price;
+                            }
+                        ?>
+                        € {{ $totalPrice }}
+                    </td>
+                </tr>
             </tbody>
         </table>
         <a href="/profile">Back to profile</a>

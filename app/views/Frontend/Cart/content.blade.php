@@ -31,7 +31,7 @@
                 @foreach ($cartEntries as $cartEntry)
                     <tr>
                         <td>
-                             <a href="/productDetails/{{ $cartEntry->GetProduct()->id }}">{{ HTML::image('images/products/' . $cartEntry->GetProduct()->small_image, $cartEntry->GetProduct()->short_descr, array()) }}</a>
+                             <a href="/productDetails/{{ $cartEntry->GetProduct()->id }}">{{ HTML::image('images/products/' . $cartEntry->GetProduct()->small_image, $cartEntry->GetProduct()->short_descr, array()) }}</a><br/ >
                              {{ $cartEntry->GetProduct()->short_descr }}
                         </td>
                         <td>
@@ -48,6 +48,33 @@
                         </td>
                     </tr>
                 @endforeach
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                    <?php
+                        $count = 0;
+                        if ($cartEntries != null)
+                        {
+                            foreach ($cartEntries as $cartEntry)
+                            {
+                                $count += $cartEntry->GetAmount();
+                            }
+                        }
+                        ?>
+                    {{ $count }}
+                    </td>
+                    <td>
+                        <?php
+                            $totalPrice = 0;
+                            if ($cartEntries != null) {
+                                foreach ($cartEntries as $cartEntry) {
+                                    $totalPrice += $cartEntry->GetTotalPrice();
+                                }
+                            }
+                        ?>
+                        € {{ $totalPrice }}
+                    </td>
+                </tr>
             </tbody>
         </table>
 

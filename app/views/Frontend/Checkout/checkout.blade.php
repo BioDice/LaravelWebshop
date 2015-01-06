@@ -98,12 +98,7 @@
                 </tr>
                 @endforeach
                 <tr>
-                    <td>
-
-                    </td>
-                    <td>
-
-                    </td>
+                    <td colspan="2"></td>
                     <td>
                     <?php
                         $count = 0;
