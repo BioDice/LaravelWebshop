@@ -29,6 +29,16 @@ Breadcrumbs::register('home.search', function($breadcrumbs) {
     $breadcrumbs->push('Search', route('home.search'));
 });
 
+Breadcrumbs::register('customer.profile', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Profile', route('customer.profile'));
+});
+
+Breadcrumbs::register('customer.checkorder', function($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Order', route('customer.checkorder'));
+});
+
 Breadcrumbs::register('category', function($breadcrumbs, $category) {
     $breadcrumbs->parent('home');
     $cat = $category;

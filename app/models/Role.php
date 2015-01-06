@@ -6,9 +6,8 @@ class Role extends Eloquent {
 
     protected $fillable = array('name', 'created_at', 'updated_at');
 
-
     public function users()
     {
-        return $this->hasMany('App\Model\User');
+        return $this->hasMany('App\Model\User', 'id');
     }
 }

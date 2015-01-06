@@ -15,6 +15,7 @@
                     @else
                         {{ Form::text('firstname', $user->firstname, ['placeholder' => 'firstname', 'disabled' => 'disabled']) }}
                     @endif
+                    {{ $errors->first('firstname', '<span class="error">:message</span>') }}
                 </div>
             </div>
             <div class="row">
@@ -29,10 +30,11 @@
             <div class="row">
                 <div class="small-10  columns">
                     @if ($user == null)
-                        {{ Form::text('surname', null, ['placeholder' => 'surname']) }}
+                        {{ Form::text('lastname', null, ['placeholder' => 'lastname']) }}
                     @else
-                        {{ Form::text('surname', $user->lastname, ['placeholder' => 'surname', 'disabled' => 'disabled']) }}
+                        {{ Form::text('lastname', $user->lastname, ['placeholder' => 'lastname', 'disabled' => 'disabled']) }}
                     @endif
+                    {{ $errors->first('lastname', '<span class="error">:message</span>') }}
                 </div>
             </div>
             <div class="row">
@@ -42,6 +44,7 @@
                     @else
                         {{ Form::text('address', $user->address, ['placeholder' => 'address', 'disabled' => 'disabled']) }}
                     @endif
+                    {{ $errors->first('address', '<span class="error">:message</span>') }}
                 </div>
             </div>
             <div class="row">
@@ -51,6 +54,7 @@
                   @else
                       {{ Form::text('postalcode', $user->postalcode, ['placeholder' => 'postalcode', 'disabled' => 'disabled']) }}
                   @endif
+                  {{ $errors->first('postalcode', '<span class="error">:message</span>') }}
               </div>
             </div>
             <input type="submit" class="button" value="Proceed payment">

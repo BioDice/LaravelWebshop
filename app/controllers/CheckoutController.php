@@ -12,7 +12,10 @@ class CheckoutController extends FrontendController {
     public function Checkout()
     {
         $cartEntries = Session::get('productsInCart');
-        if ($cartEntries == null) $cartEntries = array();
+        if ($cartEntries == null)
+        {
+            return Redirect::route('home');
+        }
         $user = Auth::user();
 
         return View::make('Frontend.Checkout.checkout', compact('cartEntries', 'user'));
@@ -26,7 +29,24 @@ class CheckoutController extends FrontendController {
         if (Auth::user() != null)
             $user = Auth::user();
         else
+        {
+            $rules = array(
+                'firstname' => array('required'),
+                'lastname' => array('required'),
+                'address' => array('required'),
+                'postalcode' => array('required')
+            );
+
+            $validation = Validator::make(Input::all(), $rules);
+
+            if ($validation->fails())
+            {
+                // Validation has failed.
+                return Redirect::to('checkout')->withInput()->withErrors($validation);
+            }
             $user = User::create(Input::all());
+        }
+
 
         $order = new Order;
         $order->userID = $user->id;
@@ -37,14 +57,6 @@ class CheckoutController extends FrontendController {
         foreach (Session::get('productsInCart') as $cartEntry) {
             $order->products()->attach($cartEntry->GetProduct()->id, array('amount' => $cartEntry->GetAmount()));
         }
-
-//        foreach (Session::get('productsInCart') as $cartEntry) {
-//            $pivot = new OrderProduct;
-//            $pivot->ordersproducts_orderID = $order->id;
-//            $pivot->ordersproducts_productID = $cartEntry->GetProduct()->id;
-//            $pivot->amount = $cartEntry->GetAmount();
-//            $pivot->save();
-//        }
 
         Session::forget('productsInCart');
         return View::make('Frontend.Checkout.final', compact('user', 'order'));

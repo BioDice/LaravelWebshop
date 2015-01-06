@@ -21,12 +21,12 @@ class User extends Eloquent implements UserInterface {
 
     public function orders()
     {
-        return $this->hasMany('App\Models\Order');
+        return $this->hasMany('App\Models\Order', 'userID');
     }
 
     public function role()
     {
-        return $this->hasOne('App\Models\Role', 'id');
+        return $this->belongsTo('App\Models\Role', 'roleID');
     }
 
     public function getAuthIdentifier()

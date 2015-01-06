@@ -10,7 +10,9 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+/*******************/
+/* Frontend routes */
+/*******************/
 /* Models */
 Route::model('category', 'App\Models\Category');
 Route::model('product', 'App\Models\Product');
@@ -28,6 +30,9 @@ Route::get('search', ['uses' => 'HomeController@Search', 'as' => 'home.search'])
 Route::get('login', ['uses' => 'AccountController@login', 'as' => 'login'])->before('guest');
 Route::get('logout', ['uses' => 'AccountController@LogOutUser', 'as' => 'logout']);
 Route::get('register', ['uses' => 'AccountController@Register', 'as' => 'register']);
+Route::get('profile', ['uses' => 'AccountController@Profile', 'as' => 'customer.profile']);
+Route::get('profile/order/{order}', ['uses' => 'AccountController@CheckOrder', 'as' => 'customer.checkorder']);
+Route::post('updatecustomer', ['uses' => 'AccountController@UpdateCustomer', 'as' => 'customer.update']);
 Route::post('storeCustomer', ['uses' => 'AccountController@StoreCustomer', 'as' => 'customer.create']);
 Route::post('LoginUser', ['uses' => 'AccountController@LogInUser', 'as' => 'user.Login']);
 
