@@ -22,6 +22,20 @@ class _BProductController extends FrontendController {
 
     public function PostCreate()
     {
+        $rules = array(
+            'short_descr' => array('required'),
+            'long_descr' => array('required'),
+            'price' => array('required', 'regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/'),
+            'image' => array('required')
+        );
+
+        $validation = Validator::make(Input::all(), $rules);
+
+        if ($validation->fails())
+        {
+            return Redirect::route('admin.product.create')->withInput()->withErrors($validation);
+        }
+
         if (Input::hasFile('image') && Input::file('image')->isValid()) {
             $imageName = $this->UploadImage();
             if (count($imageName) == 2) {
@@ -53,6 +67,19 @@ class _BProductController extends FrontendController {
 
     public function PostEdit()
     {
+        $rules = array(
+            'short_descr' => array('required'),
+            'long_descr' => array('required'),
+            'price' => array('required', 'regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/')
+        );
+
+        $validation = Validator::make(Input::all(), $rules);
+
+        if ($validation->fails())
+        {
+            return Redirect::to('admin/product/edit'.Input::get('id'))->withInput()->withErrors($validation);
+        }
+
         $product = Product::find(Input::get('id'));
         $product->fill(Input::except('image'));
 

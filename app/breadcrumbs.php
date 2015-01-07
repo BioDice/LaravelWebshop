@@ -6,7 +6,7 @@ Breadcrumbs::register('home', function($breadcrumbs) {
 
 Breadcrumbs::register('about', function($breadcrumbs) {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push('About us', route('about'));
+    $breadcrumbs->push('About me', route('about'));
 });
 
 Breadcrumbs::register('cart.content', function($breadcrumbs) {

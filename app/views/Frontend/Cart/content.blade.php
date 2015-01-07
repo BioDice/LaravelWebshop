@@ -49,7 +49,7 @@
                     </tr>
                 @endforeach
                 <tr>
-                    <td colspan="2"></td>
+                    <td colspan="2">Total</td>
                     <td>
                     <?php
                         $count = 0;
@@ -63,7 +63,7 @@
                         ?>
                     {{ $count }}
                     </td>
-                    <td>
+                    <td colspan="2">
                         <?php
                             $totalPrice = 0;
                             if ($cartEntries != null) {

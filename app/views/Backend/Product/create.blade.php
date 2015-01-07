@@ -12,7 +12,8 @@
                 <div class="small-12 columns">
                     <label>
                         Short description
-                        {{ Form::text('short_descr', null, ['placeholder' => 'Short description of the product']) }}
+                        {{ Form::text('short_descr', Input::old('short_descr'), ['placeholder' => 'Short description of the product']) }}
+                        {{ $errors->first('short_descr', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
@@ -21,7 +22,8 @@
                 <div class="small-12 columns">
                     <label>
                         Long description
-                        {{ Form::textarea('long_descr', null, ['placeholder' => 'Long description of the product']) }}
+                        {{ Form::textarea('long_descr', Input::old('long_descr'), ['placeholder' => 'Long description of the product']) }}
+                        {{ $errors->first('long_descr', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
@@ -30,7 +32,8 @@
                 <div class="small-12 columns">
                     <label>
                         Price
-                        {{ Form::text('price', null, ['placeholder' => 'Price of the product']) }}
+                        {{ Form::text('price', Input::old('price'), ['placeholder' => 'Price of the product']) }}
+                        {{ $errors->first('price', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
@@ -49,6 +52,7 @@
                     <label>
                         Image
                         {{ Form::file('image') }}
+                        {{ $errors->first('image', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
