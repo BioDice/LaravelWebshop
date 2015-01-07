@@ -25,7 +25,7 @@ class _BProductController extends FrontendController {
         $rules = array(
             'short_descr' => array('required'),
             'long_descr' => array('required'),
-            'price' => array('required', 'regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/'),
+            'price' => array('required', 'regex:/^[0-9]{1,3}([0-9]{3})*\.[0-9]+$/'),
             'image' => array('required')
         );
 
@@ -67,17 +67,18 @@ class _BProductController extends FrontendController {
 
     public function PostEdit()
     {
+        $product = Product::find(Input::get('id'));
         $rules = array(
             'short_descr' => array('required'),
             'long_descr' => array('required'),
-            'price' => array('required', 'regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/')
+            'price' => array('required', 'regex:/^[0-9]{1,3}([0-9]{3})*\.[0-9]+$/')
         );
 
         $validation = Validator::make(Input::all(), $rules);
 
         if ($validation->fails())
         {
-            return Redirect::to('admin/product/edit'.Input::get('id'))->withInput()->withErrors($validation);
+            return Redirect::route('admin.product.edit', array($product->id))->withInput()->withErrors($validation);
         }
 
         $product = Product::find(Input::get('id'));

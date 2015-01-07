@@ -27,16 +27,16 @@
                                 {{ HTML::image('images/products/' . $product->small_image, $product->short_descr, array()) }}
                             </td>
                             <td>
-                                {{ $product->short_descr }}
+                                {{{ $product->short_descr }}}
                             </td>
                             <td>
-                                {{ $product->long_descr }}
+                                {{{ $product->long_descr }}}
                             </td>
                             <td>
-                                € {{ $product->price }}
+                                € {{{ $product->price }}}
                             </td>
                             <td>
-                                {{ $product->category->name }}
+                                {{{ $product->category->name }}}
                             </td>
                             <td>
                                 <a href="/admin/product/edit/{{ $product->id }}">Edit</a> |

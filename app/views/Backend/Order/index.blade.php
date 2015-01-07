@@ -19,10 +19,10 @@
                     @foreach($orders as $order)
                         <tr>
                             <td>
-                                {{ $order->user->firstname . " " .$order->user->insertion . " " .$order->user->lastname }}
+                                {{{ $order->user->firstname . " " .$order->user->insertion . " " .$order->user->lastname }}}
                             </td>
                             <td>
-                                {{ $order->created_at }}
+                                {{{ $order->created_at }}}
                             </td>
                             <td>
                                 <?php
@@ -32,7 +32,7 @@
                                         $totalProducts += $product->pivot->amount;
                                     }
                                 ?>
-                                {{ $totalProducts }}
+                                {{{ $totalProducts }}}
                             </td>
                             <td>
                                 <a href="/admin/order/edit/{{ $order->id }}">Edit</a> |

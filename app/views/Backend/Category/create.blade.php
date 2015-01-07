@@ -12,7 +12,8 @@
                 <div class="small-12 columns">
                     <label>
                         Name
-                        {{ Form::text('name', null, ['placeholder' => 'Name of category']) }}
+                        {{ Form::text('name', Input::old('name'), ['placeholder' => 'Name of category']) }}
+                        {{ $errors->first('name', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>

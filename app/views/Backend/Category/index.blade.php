@@ -20,11 +20,11 @@
                     @foreach($categories as $category)
                         <tr>
                             <td>
-                                {{ $category->name }}
+                                {{{ $category->name }}}
                             </td>
                             <td>
                             @if ($category->parent != null)
-                                {{ $category->parent->name }}
+                                {{{ $category->parent->name }}}
                             @endif
                             </td>
                             <td>

@@ -67,8 +67,8 @@ class ProductTableSeeder extends Seeder
         ));
 
         Product::create(array(
-            'short_descr' => 'Ipad 5',
-            'long_descr' => 'Ipad 5 retina display',
+            'short_descr' => 'Ipad 3',
+            'long_descr' => 'Ipad 3',
             'small_image' => 'Ipad.png',
             'big_image' => 'Ipad_big.png',
             'price' => 65.23,

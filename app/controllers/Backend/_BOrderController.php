@@ -20,6 +20,22 @@ class _BOrderController extends FrontendController {
     public function PostEdit()
     {
         $order = Order::find(Input::get('id'));
+
+        $product = Product::find(Input::get('id'));
+        $rules = array(
+            'firstname' => array('required'),
+            'lastname' => array('required'),
+            'address' => array('required'),
+            'postalcode' => array('required')
+        );
+
+        $validation = Validator::make(Input::all(), $rules);
+
+        if ($validation->fails())
+        {
+            return Redirect::route('admin.order.edit', array($order->id))->withInput()->withErrors($validation);
+        }
+
         $user = $order->user;
         $user->fill(Input::all());
         $user->update();

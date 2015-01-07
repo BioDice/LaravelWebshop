@@ -16,6 +16,7 @@
                     <label>
                         Firstname
                         {{ Form::text('firstname', null, ['placeholder' => 'Firstname of customer']) }}
+                        {{ $errors->first('firstname', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
@@ -34,6 +35,7 @@
                     <label>
                         Lastname
                         {{ Form::text('lastname', null, ['placeholder' => 'Lastname of customer']) }}
+                        {{ $errors->first('lastname', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
@@ -43,6 +45,7 @@
                     <label>
                         Address
                         {{ Form::text('address', null, ['placeholder' => 'Address of customer']) }}
+                        {{ $errors->first('address', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
@@ -52,6 +55,7 @@
                     <label>
                         Postalcode
                         {{ Form::text('postalcode', null, ['placeholder' => 'Postalcode of customer']) }}
+                        {{ $errors->first('postalcode', '<span class="error">:message</span>') }}
                     </label>
                 </div>
             </div>
